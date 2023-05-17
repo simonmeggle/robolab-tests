@@ -1,7 +1,9 @@
 *** Settings ***
-Library     Browser    timeout=3
+# in case of an error, take a screenshot and embed the image into the log
+Library     Browser    timeout=10
 ...             run_on_failure=Take Screenshot \ EMBED
-...             enable_presenter_mode={"duration": "2 seconds", "width": "4px", "style": "dotted", "color": "red"}
+...             enable_presenter_mode={"duration": "1 seconds", "width": "4px", "style": "dotted", "color": "red"}
+# ...    enable_presenter_mode=%{PRESENTER_MODE=False}
 
 
 *** Variables ***
@@ -13,7 +15,7 @@ Login
     [Documentation]    Performs a login with the given username/password.
     ...    Depending on the expectfail parameter, an error or success is expected.
     [Arguments]    ${username}    ${password}    ${expectfail}=False
-    Click    div.service-menu > butaton
+    Click    div.service-menu > button
     Fill text    input#loginEmail    ${username}
     Fill text    input#loginPasword    ${password}
     Click    div.service-menu form >> //button[normalize-space()='Anmelden']
@@ -44,7 +46,7 @@ Empty Basket
     END
     Go To    ${URL}
 
-Search And Open Article
+Search And Select Article
     [Documentation]    Performans an article query and opens the first mathcing item.
     [Arguments]    ${articleid}    ${expect_string}    ${price}
     Fill Text    input#searchParam    ${articleid}

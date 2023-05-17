@@ -26,7 +26,7 @@ Search Item And Add To Basket
     [Documentation]    Searches for an article and adds it to the basket.
     ...    Tries to navigate to the checkout page.
     Empty Basket
-    Search And Open Article
+    Search And Select Article
     ...    articleid=2402
     ...    expect_string=Bindung LIQUID FORCE TRANSIT BOOT
     ...    price=259,00 €
