@@ -12,7 +12,7 @@
             "target": "${file}",
             "terminal": "integrated",
             "env": {
-                "PRESENTER_MODE": "{'duration': '2 seconds', 'width': '4px', 'style': 'dotted', 'color': 'red'}"
+                "PRESENTER_MODE": "{'duration': '2 seconds', 'width': '4px', 'style': 'dotted', 'color': 'red'}",
             },
             "args": []
         }
