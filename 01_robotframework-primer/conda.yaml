@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.9.13               # https://pyreadiness.org/3.9/ 
+  - pip=22.1.2                  # https://pip.pypa.io/en/stable/news/
+  - pip:
+    - robotframework>=6
+    - pyyaml

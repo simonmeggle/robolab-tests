@@ -1,0 +1,8 @@
+yml_var: Hello World
+yml_list:
+  - Apple
+  - Banana
+  - Cherry
+yml_dict: 
+  name: John
+  age: 36
