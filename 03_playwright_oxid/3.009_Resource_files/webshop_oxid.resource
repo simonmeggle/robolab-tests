@@ -1,6 +1,8 @@
 *** Settings ***
 
-Library             Browser  run_on_failure=Take Screenshot \ EMBED   
+Library             Browser  
+...  enable_presenter_mode={"duration": "1 seconds", "width": "6px", "style": "dotted", "color": "red"}  
+...  run_on_failure=Take Screenshot \ EMBED   
 
 *** Variables ***
 ${URL}          https://oxid.robotmk.org

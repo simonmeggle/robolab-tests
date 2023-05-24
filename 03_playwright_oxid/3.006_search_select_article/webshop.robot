@@ -14,7 +14,7 @@ It is highly recommended to store such dynamic data in variables instead of hard
 *** Settings ***
 Documentation       Oxid eshop test for login and item search.
 
-Library             Browser
+Library             Browser  enable_presenter_mode={"duration": "1 seconds", "width": "6px", "style": "dotted", "color": "red"}
 Library             CryptoLibrary    password=%{ROBOT_CRYPTO_KEY_PASSWORD_OXID}
 ...                     variable_decryption=True    key_path=${CURDIR}${/}keys
 

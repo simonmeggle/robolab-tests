@@ -20,8 +20,8 @@ should assert the success. With a wrong password, "success" means an error messa
 !! ACTION: See the bad code example below and understand why this code smells. 
 
 *** Settings ***
-Documentation       Oxid eshop test for login and item search.
-Library             Browser
+Documentation       Oxid eshop test for login and item search. 
+Library             Browser  enable_presenter_mode={"duration": "1 seconds", "width": "6px", "style": "dotted", "color": "red"}
 Library             CryptoLibrary    password=%{ROBOT_CRYPTO_KEY_PASSWORD_OXID}
 ...                     variable_decryption=True    key_path=${CURDIR}${/}keys   
 
