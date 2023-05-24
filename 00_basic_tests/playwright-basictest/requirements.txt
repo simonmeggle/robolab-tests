@@ -1,0 +1,6 @@
+pyyaml
+mergedeep
+python-dateutil
+robotframework>=6
+robotframework-crypto==0.3.0
+robotframework-browser>=14.3.0
