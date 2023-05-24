@@ -1,8 +1,8 @@
 *** Comments ***
-Variable names are always enclosed in {} and are prefixed by a special character to show the type: 
+Variable names are always enclosed in {} and are prefixed by a special character to show the type:
 - $ = scalar
 - & = dict
-- @ = list 
+- @ = list
 - % = Environment
 
 Variables can be overridden on the CLI:
@@ -14,22 +14,20 @@ all others in lowercase.
 
 
 *** Settings ***
-Library     Collections
-Variables   varfile.py
-# FIXME
-Variables   varfile.yml
+Library         Collections
+Variables       varfile.py
+Variables       varfile.yml
+
 
 *** Variables ***
 # Variables set here have suite scope (equal to the ones loaded from file)
-# Scalar vars: 
+# Scalar vars:
 ${VAR_ONE}=         Hello World!
 ${VAR_TWO}          Robots 4ever!
-${WELCOME}          welcome to Robot!
-${COUNTER}          4  # ops, stored as string!
-${COUNTER}          ${4}  # stored as int
 
-
-
+# Values are stored as string by default
+${COUNTER}          4    # ops, stored as string!
+${COUNTER}          ${4}    # stored as int
 
 # List variables: watch the two spaces between list elements
 @{SALUTATIONS}      Hello    Guten Abend    Guten Morgen
@@ -37,50 +35,69 @@ ${COUNTER}          ${4}  # stored as int
 # Dict vars:
 &{CARS}             ford=mustang    ferrari=f40    vw=beetle
 # (also possible)
-&{CARS}             
-...    ford=Mustang    
-...    ferrari=F40    
-...    vw=Beetle
+&{CARS}
+...                 ford=Mustang
+...                 ferrari=F40
+...                 vw=Beetle
 
-# Nested dict: 
-&{mydict}  eins=1111  zwei=2222  drei=3333
-&{outerdict}  a=&{mydict}  b=BBB  c=CCC
+# Nested dict:
+&{mydict}           eins=1    zwei=2    drei=3
+&{outerdict}        a=&{mydict}    b=V    c=C
 
+&{USER 2}       name=Teppo    address=yyy         phone=456
 *** Test Cases ***
 Scalar Var Examples
-    Set Suite Variable    ${SALUTATION}    Guten Abend
-    Set Test Variable    ${SALUTATION}    Guten Abend
-    Log    ${SALUTATION}
+    Set Suite Variable    ${SALUTATIONDE}    Guten Abend
+    Set Test Variable    ${SALUTATIONEN}    Good Morning
+    Log To Console    ${SALUTATIONDE}
+    Log To Console    ${SALUTATIONEN}
 
 List Var Example
     # When accessing values of list vars, use $ instead of @
-    Log    ${SALUTATIONS}[1], ${WELCOME}
+    Log To Console    ${SALUTATIONS}[1]
     Set List Value    ${SALUTATIONS}    1    Griaßdi
-    Log    ${SALUTATIONS}[1], ${WELCOME}
+    Log To Console    ${SALUTATIONS}[1]
 
-Dict Var Example 
+Dict Var Example
     # When accessing values of dict vars, use $ instead of &
-    # Dict values can be accessed with brackets: 
-    Log  Today I want to drive a Ford ${CARS}[ford]
-    # ...or with attribute-like way: 
-    Log  Wo wants to drive a Ferrari ${CARS.ferrari}?
+    # Dict values can be accessed with brackets:
+    Log To Console    Today I want to drive a Ford ${CARS}[ford]
+    # ...or with attribute-like way:
+    Log To Console    Wo wants to drive a Ferrari ${CARS.ferrari}?
 
     # nested dicts
-    Log to console  ${outerdict.a.eins}
-	Log to console  ${outerdict}[a][eins]
+    Log to console    ${outerdict.a.eins}
+    Log to console    ${outerdict}[a][eins]
 
 Env Var Example
-    Log  Hello, I am %{USER} and I am living in ${CITY=berlin}
+    Log To Console    Hello, I am %{USER} and I am living in ${CITY=berlin}
 
-Path Vars Example 
-    # The following variables are Robot-Internal and can be used as desired: 
-    Log  The path of this robot file is ${CURDIR}
-    Log  The execution dir is ${EXECDIR}
-    Log  The temp dir is ${TEMPDIR}
-
+Path Vars Example
+    # The following variables are Robot-Internal and can be used as desired:
+    Log To Console    The path of this robot file is ${CURDIR}
+    Log To Console    The execution dir is ${EXECDIR}
+    Log To Console    The temp dir is ${TEMPDIR}
 
 YAML Vars Example
-    Log  ${yml_var}
+    [Documentation]    Example for using variables read from YAML file
+    Log To Console    ${yml_var}
+    Log To Console  ${yml_fruit_list}[1]
+    FOR    ${index}    ${element}    IN ENUMERATE    @{yml_fruit_list}
+        Log To Console    ${index}: ${element}
+        
+    END
 
-Python Vars Example 
-    No Operation  # FIXME
+    Log To Console  ${yml_name_dict}[age]
+    Log To Console  ${yml_name_dict.age}  #alternative syntax
+
+Python Vars Example
+    [Documentation]    Example for using variables read from Python file
+    Log To Console    ${py_var}
+    Log To Console  ${py_fruit_list}[1]
+    FOR    ${index}    ${element}    IN ENUMERATE    @{py_fruit_list}
+        Log To Console    ${index}: ${element}
+        
+    END
+    
+    Log To Console  ${py_name_dict}[age]
+    Log To Console  ${py_name_dict}[name]
