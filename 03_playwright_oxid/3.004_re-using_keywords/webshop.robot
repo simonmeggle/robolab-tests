@@ -1,8 +1,13 @@
 *** Comments ***
+-> Create second login test (invalid credentials) 
+
+
+Key Learning: 
+- Make keywords reusable
+- use RF control structures
+
 Why should you test a login with INVALID credentials... ? 
 - Think of a misconfigured/buggy webshop which accepts ANY password... 
-
-Key Point: Make keywords reusable, use RF control structures
 
 A Login test with invalid credentials behaves different from a valid login in one thing: 
 We expect an error message. 
@@ -11,6 +16,8 @@ this would lead to a lot of redundant code.
 
 Instead, we add a flag argument to the Login keyword which controls how the keyword 
 should assert the success. With a wrong password, "success" means an error message. 
+
+!! ACTION: See the bad code example below and understand why this code smells. 
 
 *** Settings ***
 Documentation       Oxid eshop test for login and item search.

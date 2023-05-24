@@ -1,9 +1,12 @@
 *** Comments ***
-In this checkpoint, we create our first user keyword to execute the Login on the web shop.
+-> Create Login keyword for Oxid eshop
+-> Handle sensitive data 
+
 
 Key Learnings: 
 - Variables
 - CryptoLibrary
+- Selector strategy, Strict mode on/off
 - CSS/XPath selectors
 
 You should never store sensitive information within the robot file. Instead, use CryptoLibrary
@@ -65,6 +68,9 @@ Search Item And Add To Basket
 Login
     [Documentation]    Performs a login with the given username/password.    #    <--HERE--    The Login keyword encapsulates the keywords needed to perform a login.
     [Arguments]    ${username}    ${password}    #    <--HERE--    within keyword scope, we use lowercase var names
+    # Does not work with Strict mode on (3 results)
+    # Click  text="Anmelden"
+
     # CSS: "A <button> tag which is a direct child of a <div> with the class 'service-menu' "
     Click
     ...    div.service-menu > button

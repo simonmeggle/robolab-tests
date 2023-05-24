@@ -1,4 +1,6 @@
 *** Comments ***
+-> Avoid code duplications
+
 Key Learnings:
 - Setup/Teardown in Suite and Tests
 

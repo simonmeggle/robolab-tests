@@ -1,4 +1,11 @@
 *** Comments ***
+-> Have an idea in mind of what you want to test. Create the suite skeleton with placeholders for the tests.
+
+Key Learnings: 
+- Comments
+- HERE, ACTION
+- Basic skeleton for tests
+
 Welcome to this Robot Framework tutorial! Our goal is to write a
 web test suite for out ecommerce shop system. This Docstring should briefly outline what 
 the suite is about and what the tests are doing. 

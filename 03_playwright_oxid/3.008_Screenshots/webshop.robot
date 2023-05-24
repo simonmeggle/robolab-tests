@@ -1,6 +1,9 @@
 *** Comments ***
+-> Add screenshots to the log file 
+
 Key Learnings:
-- Learn how to integrate Screenshots taken by the library both in case of an error and on demand. 
+- Learn how to embed screenshots taken by the library both in case of an error and on demand. 
+- mask & selective screenshots
 
 For monitoring Admins it is very important to have one central UI form where they can read the status 
 of ALL systems. If an end2end test fails, it is very helpful to have a screenshot of the failed state 

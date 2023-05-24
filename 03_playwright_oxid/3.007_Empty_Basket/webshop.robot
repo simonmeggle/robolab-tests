@@ -1,6 +1,7 @@
 *** Comments ***
+-> Empty basket before ordering
+
 Key Learnings:
-- add another User keyword to empty the basket before ordering
 - use internal text strategy to locate elements 
 - Strict mode (https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
 - Conditional Actions based on "then"-Assertions

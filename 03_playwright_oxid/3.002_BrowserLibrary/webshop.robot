@@ -1,9 +1,19 @@
 *** Comments ***
+-> Make Browser Library working. 
+
+Key Learnings: 
+- import Browser library
+- Library Documentation
+- Browser, Context, Page concept
+
 This checkpoint contains all changes so that the browser opens the shop URL.
 
+!! ACTION: 
+- Open Browser library documentation (see link above)
+- Change locale to en-EN - how does the page look like? 
 
-*** Settings ***    #    <--HERE--    This section contains settinga which affect the whole suite.
-Documentation       Oxid eshop test for login and item search.    <--HERE--    Brief explanation what this suite does.
+*** Settings ***   
+Documentation       Oxid eshop test for login and item search.  
 
 Library             Browser    #    <--HERE--    must be installed (see requirements.txt). https://marketsquare.github.io/robotframework-browser/Browser.html
 
@@ -24,6 +34,7 @@ Login with valid credentials
     # A viewport of None leads to a browser window with optimal width and maximal height
     # If the page is i18n, setting the context locale can result in the desired page language.
     New Context    viewport=${None}    locale=de-DE
+    # New Context    viewport=${None}    locale=en-EN
     
     # Create a new page (~"tab" within identity)
     New Page    ${URL}
@@ -34,6 +45,8 @@ Login with valid credentials
 	#   	- New Context 
 	#   	- New Page
     #Open Browser    ${URL}    ${browser}    headless=False
+
+
     No Operation   #  !!ACTION: Set a breakpoint in this line (F9) and start the debugger (click on 
     # "Debug" in the Code lens on top of the test name or press F5).
     # The browser should show the web shop's landing page. 

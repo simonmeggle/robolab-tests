@@ -1,4 +1,6 @@
 *** Comments ***
+-> Add third test (artice search) 
+
 Key Learnings:
 - Multiple Arguments
 - CSS chaining
@@ -96,8 +98,8 @@ Search And Select Article
     Click    button#toBasket
     # CSS: click on the <a> link which has a "title" attribute with the given text
     Click    a[title='Warenkorb zeigen']
-    # Check the article price in the table and produce a meaningful error message
 
+    # Check the article price in the table and produce a meaningful error message
     # Way 1) Store the current price in a variable... 
     ${current_price}=  Get Text    td#basketGrandTotal      # CSS: <td> table field with the ID "basketGrandTotal"
     # ... and use the RF internal comparison keyword to check equality
