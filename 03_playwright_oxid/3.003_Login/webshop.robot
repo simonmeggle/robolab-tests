@@ -79,13 +79,8 @@ Login
     ...    input#loginEmail
     ...    ${username}
     Fill text    input#loginPasword    ${password}
-    # ">>" = Cascaded selector syntax: allows to combine different selector strategies.
-    # This is needed because only XPath is able to compare the visible text of an element.
-    #    CSS......................XPath.................................
-    #    CSS: a <form> within a <div> with the class "service-menu"
-    #    XPath: inside of this element, find a <button> which matches this condition:
-    #    The text representation should be "Anmelden" (ignoring the surrounding spaces)
-    Click    div.service-menu form >> //button[normalize-space()='Anmelden']
+    # CSS: "A <button> tag which is within a <form> tag which is within a <div> with the class 'service-menu'"
+    Click    div.service-menu form button
 
     # Our first Assertion: Assertions do not perform actions on the page but only check 
     # if it has the desired state. Assertions are not needed inevitably and in every case, 

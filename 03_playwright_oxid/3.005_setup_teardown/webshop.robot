@@ -60,7 +60,7 @@ Login
     ...    input#loginEmail
     ...    ${username}
     Fill text    input#loginPasword    ${password}
-    Click    div.service-menu form >> //button[normalize-space()='Anmelden']
+    Click    div.service-menu form button
     IF    ${expectfail} == ${True}
         Get Element States
         ...    p#errorBadLogin

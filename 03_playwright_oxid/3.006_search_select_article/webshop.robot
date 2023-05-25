@@ -61,7 +61,7 @@ Login
     ...    input#loginEmail
     ...    ${username}
     Fill text    input#loginPasword    ${password}
-    Click    div.service-menu form >> //button[normalize-space()='Anmelden']
+    Click    div.service-menu form button
     IF    ${expectfail} == ${True}
         Get Element States
         ...    p#errorBadLogin
@@ -84,26 +84,25 @@ Search And Select Article
     [Arguments]    ${article_id}    ${article_title}    ${article_price}  
     Fill Text    input#searchParam    ${article_id}    #  <--HERE--  enter the ID into the searchbox 
     Click    form.search button  # CSS: a <button> inside of a <form> with class "search"
+    
     # Check if the 1st element of the results is the expected one.
     # Read from right to left: 
     # - a <div> with class 'productData', which is the first child element of 
     # - a <div> with class 'row'        , which is the first child element of 
     # - a <div> with class 'list-container'
     Get Text    div.list-container div.row:first-child div.productData:first-child    *=    ${article_title}   message=Article ${article_id} cannot be found!
+    
     # Select the 1st article; uses the same selector as above + <a> inside of a <div>
     Click    div.list-container div.row:first-child div.productData:first-child div.actions a
+    
     # Check if the details page shows the article text
     Get Text    div.detailsInfo    *=    ${article_title}  message=Article ${article_id} cannot be found!
+    
     # Add the item to the basket
     Click    button#toBasket
+    
     # CSS: click on the <a> link which has a "title" attribute with the given text
     Click    a[title='Warenkorb zeigen']
 
     # Check the article price in the table and produce a meaningful error message
-    # Way 1) Store the current price in a variable... 
-    ${current_price}=  Get Text    td#basketGrandTotal      # CSS: <td> table field with the ID "basketGrandTotal"
-    # ... and use the RF internal comparison keyword to check equality
-    Should Be Equal As Strings      ${current_price}  ${article_price}  msg=Price for article ${article_id} is ${current_price} (expected:${article_price})!
-
-    # Way 2) Use the Assertion engine and internal operators {value} and {expected}
     Get Text    td#basketGrandTotal    ==    ${article_price}  message=Price for article ${article_id} is {value} (expected:{expected})!

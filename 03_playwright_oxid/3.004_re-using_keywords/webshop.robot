@@ -64,7 +64,7 @@ Login
     ...    input#loginEmail
     ...    ${username}
     Fill text    input#loginPasword    ${password}
-    Click    div.service-menu form >> //button[normalize-space()='Anmelden']
+    Click    div.service-menu form button
     IF    ${expectfail} == ${True}    #  <--HERE--  
         # invalid credentials, we expect an errror
         # Asserting a certain error message as in the ELSE part would be possible, but then we depend 
@@ -92,7 +92,7 @@ Login
 #     ...    input#loginEmail
 #     ...    ${username}
 #     Fill text    input#loginPasword    ${password}
-#     Click    div.service-menu form >> //button[normalize-space()='Anmelden']
+#     Click    div.service-menu form button
 #     Get Element States   # returns a list of all states (attached, visible, disabled, readonly, ....)
 #         ...    p#errorBadLogin  #  <p> element with ID attribute "errorBadLogin"
 #         ...    *=

@@ -20,9 +20,8 @@ Login
     Fill text
     ...    input#loginEmail
     ...    ${uname}
-    # CHANGETHIS selector
     Fill text    input#loginPasword    ${pwd}
-    Click    div.service-menu form >> //button[normalize-space()='Anmelden']
+    Click    div.service-menu form button
     IF    ${expectfail} == ${True}
         Get Element States
         ...    p#errorBadLogin
