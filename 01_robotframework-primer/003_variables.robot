@@ -29,6 +29,8 @@ ${VAR_TWO}          Robots 4ever!
 ${COUNTER}          4    # ops, stored as string!
 ${COUNTER}          ${4}    # stored as int
 
+${USE_SSL}          ${True}    # stored as boolean
+
 # List variables: watch the two spaces between list elements
 @{SALUTATIONS}      Hello    Guten Abend    Guten Morgen
 
@@ -44,7 +46,9 @@ ${COUNTER}          ${4}    # stored as int
 &{mydict}           eins=1    zwei=2    drei=3
 &{outerdict}        a=&{mydict}    b=V    c=C
 
-&{USER 2}       name=Teppo    address=yyy         phone=456
+&{USER 2}           name=Teppo    address=yyy    phone=456
+
+
 *** Test Cases ***
 Scalar Var Examples
     Set Suite Variable    ${SALUTATIONDE}    Guten Abend
@@ -81,23 +85,21 @@ Path Vars Example
 YAML Vars Example
     [Documentation]    Example for using variables read from YAML file
     Log To Console    ${yml_var}
-    Log To Console  ${yml_fruit_list}[1]
+    Log To Console    ${yml_fruit_list}[1]
     FOR    ${index}    ${element}    IN ENUMERATE    @{yml_fruit_list}
         Log To Console    ${index}: ${element}
-        
     END
 
-    Log To Console  ${yml_name_dict}[age]
-    Log To Console  ${yml_name_dict.age}  #alternative syntax
+    Log To Console    ${yml_name_dict}[age]
+    Log To Console    ${yml_name_dict.age}    #alternative syntax
 
 Python Vars Example
     [Documentation]    Example for using variables read from Python file
     Log To Console    ${py_var}
-    Log To Console  ${py_fruit_list}[1]
+    Log To Console    ${py_fruit_list}[1]
     FOR    ${index}    ${element}    IN ENUMERATE    @{py_fruit_list}
         Log To Console    ${index}: ${element}
-        
     END
-    
-    Log To Console  ${py_name_dict}[age]
-    Log To Console  ${py_name_dict}[name]
+
+    Log To Console    ${py_name_dict}[age]
+    Log To Console    ${py_name_dict}[name]

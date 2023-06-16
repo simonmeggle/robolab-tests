@@ -34,13 +34,9 @@ Test Teardown       Take A Screenshot    #    <--HERE--
 
 *** Variables ***
 ${BROWSER}          firefox
-# ARTICLE
 ${ARTICLE_ID}       2402
-# ${ARTICLE_ID}       2103
 ${ARTICLE_TITLE}    Bindung LIQUID FORCE TRANSIT BOOT
-# ${ARTICLE_TITLE}    Wakeboard LIQUID FORCE GROOVE
 ${ARTICLE_PRICE}    259,00 €
-# ${ARTICLE_PRICE}    329,00 €
 
 
 *** Test Cases ***
