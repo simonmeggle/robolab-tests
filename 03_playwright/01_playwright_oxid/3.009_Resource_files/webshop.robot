@@ -33,7 +33,7 @@ Test Teardown       Take A Screenshot    #    <--HERE--
 
 
 *** Variables ***
-${BROWSER}          firefox
+${BROWSER}          chromium
 ${ARTICLE_ID}       2402
 ${ARTICLE_TITLE}    Bindung LIQUID FORCE TRANSIT BOOT
 ${ARTICLE_PRICE}    259,00 €
@@ -45,7 +45,7 @@ Login with valid credentials
     Login
 
 Login with invalid credentials
-    [Documentation]    A user with valid credentials must be able to login.
+    [Documentation]    A user with invalid credentials must be rejected.
     Login    pwd=thisisanincorrectpassword!    expectfail=True
 
 Search Item And Add To Basket
