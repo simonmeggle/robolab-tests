@@ -52,6 +52,7 @@ Login with valid credentials
     #    - New Page
     # Open Browser    ${URL}    ${browser}    headless=False
 
+    Get text  ${HOME_BARGAIN_HEADLINE}  *=  Angebote der Woche
     No Operation    # BREAKPOINT: use the debugger to inspect the page
 
 Login with invalid credentials

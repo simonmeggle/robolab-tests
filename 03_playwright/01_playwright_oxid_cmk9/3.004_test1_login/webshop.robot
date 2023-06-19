@@ -37,6 +37,7 @@ Login with valid credentials
     New Browser    browser=${BROWSER}    headless=False
     New Context    viewport=${None}    locale=de-DE
     New Page    ${URL}
+    Get text  ${HOME_BARGAIN_HEADLINE}  *=  Angebote der Woche
     Login    ${USERNAME}    ${PASSWORD}    #    <--BREAK--
 
 Login with invalid credentials

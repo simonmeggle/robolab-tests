@@ -8,6 +8,7 @@ ${USERNAME}                 mail@robotmk.org
 ${PASSWORD}                 crypt:bD22YdO6Om/M63SHz3clvZ4UKpEonuvUh0nO+vHymmFGWjzPveg+dSTFGlVRmSk7ZQQj7anvpBA=
 
 # Login Selectors
+${HOME_BARGAIN_HEADLINE}    div#boxwrapper_bargainItems h2
 ${MENU_BT_ANMELDEN1}        div.service-menu > button
 ${MENU_F_USERNAME}          input#loginEmail
 ${MENU_F_PASSWORD}          input#loginPasword
@@ -41,3 +42,4 @@ Open Webshop   #    <--HERE--    This new keyword is used before each test start
     New Browser    browser=${BROWSER}    headless=False
     New Context    viewport=${None}    locale=de-DE
     New Page    ${URL}
+    Get text  ${HOME_BARGAIN_HEADLINE}  *=  Angebote der Woche

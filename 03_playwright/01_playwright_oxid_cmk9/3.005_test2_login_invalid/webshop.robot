@@ -38,6 +38,7 @@ Login with valid credentials
     New Browser    browser=${BROWSER}    headless=False
     New Context    viewport=${None}    locale=de-DE
     New Page    ${URL}
+    Get text  ${HOME_BARGAIN_HEADLINE}  *=  Angebote der Woche
     Login    ${USERNAME}    ${PASSWORD}   
 
 Login with invalid credentials
@@ -46,6 +47,7 @@ Login with invalid credentials
     New Browser    browser=${BROWSER}    headless=False
     New Context    viewport=${None}    locale=de-DE
     New Page    ${URL}
+    Get text  ${HOME_BARGAIN_HEADLINE}  *=  Angebote der Woche
     Login    ${USERNAME}    thisisanincorrectpassword!    expectfail=True
 
 Search Item And Add To Basket
